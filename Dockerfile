@@ -36,6 +36,8 @@ COPY --from=builder /app/sql/schema.sql /app
 WORKDIR /app
 ENV NODE_ENV production
 
+ENTRYPOINT ["sh", "./scripts/server.sh"]
+
 # Start the server by default, this can be overwritten at runtime
 #CMD [ "node", "build" ]
-CMD [ "node", "run", "./build/index.js" ]
+#CMD [ "node", "run", "./build/index.js" ]

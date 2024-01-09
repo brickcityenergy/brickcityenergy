@@ -14,4 +14,4 @@ fi
 
 sqlite3 data/db.sqlite3 < schema.sql
 node build
-# node run ./build/index.js
+node run ./build/index.js
