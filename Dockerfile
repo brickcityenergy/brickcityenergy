@@ -31,10 +31,11 @@ RUN apt update -qq && \
 COPY --from=builder /app/node_modules /app/node_modules
 COPY --from=builder /app/build /app/build
 COPY --from=builder /app/package.json /app
-COPY --from=builder /app/scripts/fly-start.sh /app
+COPY --from=builder /app/scripts/server.sh /app
 COPY --from=builder /app/sql/schema.sql /app
 WORKDIR /app
 ENV NODE_ENV production
 
 # Start the server by default, this can be overwritten at runtime
-CMD [ "node", "build" ]
+#CMD [ "node", "build" ]
+CMD [ "node", "run", "./build/index.js" ]
